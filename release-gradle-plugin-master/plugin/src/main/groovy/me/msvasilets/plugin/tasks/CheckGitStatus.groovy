@@ -7,6 +7,7 @@ import org.gradle.api.tasks.TaskAction
 
 class CheckGitStatus extends DefaultTask {
 
+
     @TaskAction
     def checkStatus() {
         def statusResult = GitUtils.gitStatusResult
