@@ -11,7 +11,7 @@ class CreateMinorRelease extends DefaultTask{
         def tags = GitUtils.getGitTagsResult
         println(tags)
 
-       /* def tagsArray = tags.split("\n")
+        def tagsArray = tags.split("\n")
         tagsArray.toList().forEach {println it}
 
         def currentVersion = tagsArray[tagsArray.size() -1]
@@ -25,7 +25,7 @@ class CreateMinorRelease extends DefaultTask{
 
         GitUtils.createTag(newVersion)
 
-        ("git push origin $newVersion").execute()*/
+        ("git push origin $newVersion").execute()
     }
 
 
