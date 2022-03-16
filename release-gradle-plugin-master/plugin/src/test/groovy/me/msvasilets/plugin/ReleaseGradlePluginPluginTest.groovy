@@ -4,7 +4,6 @@
 package me.msvasilets.plugin
 
 import org.gradle.testfixtures.ProjectBuilder
-import org.gradle.api.Project
 import spock.lang.Specification
 
 /**
