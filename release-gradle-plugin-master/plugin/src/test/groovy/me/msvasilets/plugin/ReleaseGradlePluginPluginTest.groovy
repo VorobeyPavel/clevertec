@@ -10,7 +10,7 @@ import spock.lang.Specification
  * A simple unit test for the 'me.msvasilets.plugin.greeting' plugin.
  */
 class ReleaseGradlePluginPluginTest extends Specification {
-    def "plugin registers task"() {
+    /*def "plugin registers task"() {
         given:
         def project = ProjectBuilder.builder().build()
 
@@ -19,5 +19,5 @@ class ReleaseGradlePluginPluginTest extends Specification {
 
         then:
         project.tasks.findByName("greeting") != null
-    }
+    }*/
 }
