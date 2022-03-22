@@ -4,6 +4,7 @@
 package by.vorobey.plugin
 
 import by.vorobey.plugin.tasks.CheckGitStatus
+import by.vorobey.plugin.tasks.CheckGitVersion
 import by.vorobey.plugin.tasks.CreateMajorRelease
 import by.vorobey.plugin.tasks.CreateMinorRelease
 import by.vorobey.plugin.tasks.ReleaseTask
@@ -27,6 +28,10 @@ class ReleaseMyPluginPlugin implements Plugin<Project> {
             doLast {
                 println 'Hello from the helloPlugin'
             }
+        }
+
+        project.tasks.register("checkGitVersion", CheckGitVersion) {
+            setGroup("release")
         }
 
         project.tasks.register("checkGitStatus", CheckGitStatus) {
