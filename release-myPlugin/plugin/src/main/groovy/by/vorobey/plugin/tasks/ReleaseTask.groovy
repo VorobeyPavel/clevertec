@@ -1,12 +1,12 @@
 package by.vorobey.plugin.tasks
 
-
+import by.vorobey.plugin.GitUtils
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
 
 class ReleaseTask extends DefaultTask {
 
-   /* @TaskAction
+    /*@TaskAction
     def release() {
 
         if (GitUtils.currentBranch == 'master') {
@@ -14,6 +14,5 @@ class ReleaseTask extends DefaultTask {
         } else {
             new CreateMinorRelease().createMinorRelease()
         }
-
     }*/
 }

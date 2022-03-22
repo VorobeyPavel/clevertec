@@ -48,14 +48,23 @@ class ReleaseMyPluginPlugin implements Plugin<Project> {
             setGroup("release")
         }
 
-        project.tasks.register("release", ReleaseTask) {
+        project.tasks.register("releaseBranch") {
+            setGroup("release")
+            def currentBrunch = GitUtils.currentBranch
+            if (currentBrunch.contains(GitUtils.MAJOR_BRANCH)){
+                dependsOn("createMajorRelease")
+            } else {
+                dependsOn("createMinorRelease")
+            }
+        }
+
+        /*project.tasks.register("release", ReleaseTask) {
             setGroup("release")
             if (GitUtils.currentBranch.trim() == 'master') {
                 dependsOn('createMajorRelease')
             } else {
                 dependsOn('createMinorRelease')
             }
-
-        }
+        }*/
     }
 }

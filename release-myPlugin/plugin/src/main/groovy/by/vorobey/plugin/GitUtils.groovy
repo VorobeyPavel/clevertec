@@ -1,10 +1,13 @@
 package by.vorobey.plugin
 
+import by.vorobey.plugin.tasks.Release
 import org.gradle.api.GradleScriptException
 
 class GitUtils {
 
     public static def getGitTagsResult = ("git tag -l").execute().text
+
+    public static def MAJOR_BRANCH = Release.getBranches(0);
 
     public static def createTag(String version) {
         def result = ("git tag -a $version -m \"Created\"").execute().text
