@@ -7,7 +7,7 @@ import by.vorobey.plugin.tasks.CheckGitStatus
 import by.vorobey.plugin.tasks.CheckGitVersion
 import by.vorobey.plugin.tasks.CreateMajorRelease
 import by.vorobey.plugin.tasks.CreateMinorRelease
-import by.vorobey.plugin.tasks.ReleaseTask
+
 import org.gradle.api.Project
 import org.gradle.api.Plugin
 
@@ -58,13 +58,5 @@ class ReleaseMyPluginPlugin implements Plugin<Project> {
             }
         }
 
-        /*project.tasks.register("release", ReleaseTask) {
-            setGroup("release")
-            if (GitUtils.currentBranch.trim() == 'master') {
-                dependsOn('createMajorRelease')
-            } else {
-                dependsOn('createMinorRelease')
-            }
-        }*/
     }
 }
