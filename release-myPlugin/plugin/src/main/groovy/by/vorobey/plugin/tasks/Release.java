@@ -8,11 +8,11 @@ public class Release {
 
     public static ArrayList<String> initialisationBranch(){
         ArrayList<String> list = new ArrayList<>();
-        list.add("Master");
-        list.add("Hotfix");
-        list.add("Release");
-        list.add("Feature");
-        list.add("Develop");
+        list.add("master");
+        list.add("hotfix");
+        list.add("release");
+        list.add("feature");
+        list.add("develop");
         return list;
     }
 
