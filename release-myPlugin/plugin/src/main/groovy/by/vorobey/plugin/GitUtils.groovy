@@ -11,7 +11,6 @@ class GitUtils {
 
     public static def createTag(String version) {
         def result = ("git tag -a $version -m \"Created\"").execute().text
-
         if (!result.isEmpty()) {
             throw new GradleScriptException("Tag was not created", null)
         }

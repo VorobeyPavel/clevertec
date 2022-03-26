@@ -48,7 +48,7 @@ class ReleaseMyPluginPlugin implements Plugin<Project> {
             setGroup("release")
         }
 
-        project.tasks.register("releaseBranch") {
+        /*project.tasks.register("releaseBranch") {
             setGroup("release")
             def currentBrunch = GitUtils.currentBranch
             if (currentBrunch.contains(GitUtils.MAJOR_BRANCH)){
@@ -56,7 +56,7 @@ class ReleaseMyPluginPlugin implements Plugin<Project> {
             } else {
                 dependsOn("createMinorRelease")
             }
-        }
+        }*/
 
     }
 }

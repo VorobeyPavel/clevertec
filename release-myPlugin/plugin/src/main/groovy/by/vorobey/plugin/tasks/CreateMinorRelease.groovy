@@ -8,19 +8,23 @@ class CreateMinorRelease extends DefaultTask{
 
     @TaskAction
     def createMinorRelease() {
+
         def tags = GitUtils.getGitTagsResult
-        //println(tags)
+        println("tags:")
 
         def tagsArray = tags.split("\n")
         tagsArray.toList().forEach {println it}
 
-        if (tagsArray.size()==0){
-            def currentVersion = "v1.0"
-            println(currentVersion)
-        }
+        println("tagsArray.size(): "+ tagsArray.size())
 
-        def currentVersion = tagsArray[tagsArray.size() -1]
-        println("current version = $currentVersion")
+        def currentVersion
+        if (tagsArray.size()==0){
+            currentVersion = "v0.0"
+            println("currentVersion!: "+currentVersion)
+        }else {
+             currentVersion = tagsArray[tagsArray.size() -1]
+            println("current version = $currentVersion")
+        }
 
         def currentVersionSplitted = currentVersion.split('\\.')
         println("splitted current version = $currentVersionSplitted")
