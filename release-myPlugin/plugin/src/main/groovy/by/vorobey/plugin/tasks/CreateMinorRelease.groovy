@@ -14,6 +14,11 @@ class CreateMinorRelease extends DefaultTask{
         def tagsArray = tags.split("\n")
         tagsArray.toList().forEach {println it}
 
+        if (tagsArray.size()==0){
+            def currentVersion = "v1.0"
+            println(currentVersion)
+        }
+
         def currentVersion = tagsArray[tagsArray.size() -1]
         println("current version = $currentVersion")
 
