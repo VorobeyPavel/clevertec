@@ -38,6 +38,7 @@ gradlePlugin {
     // Define the plugin
     plugins {
         greeting {
+
             id = 'by.vorobey.plugin.greeting'
             implementationClass = 'by.vorobey.plugin.ReleaseMyPluginPlugin'
         }
