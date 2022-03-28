@@ -16,8 +16,6 @@ plugins {
     // Плагин для публикации проекта в репозиторий
     id 'maven-publish'
 
-    //для работы необходимо выполнить команду
-    //$ gradlew publishToMavenLocal
     //https://elmland.blog/2019/08/10/add-mavenlocal-to-gradle-plugin-resolution/
     id 'by.vorobey.plugin.greeting' version '1.0'
 }
