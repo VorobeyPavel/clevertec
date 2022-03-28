@@ -17,14 +17,28 @@ class CreateMinorRelease extends DefaultTask{
 
         println("tagsArray.size(): "+ tagsArray.size())
 
-        def currentVersion
+
+
+        //123
+        /*def currentVersion
         if (tagsArray.size()==0){
             currentVersion = "v0.0"
             println("currentVersion!: "+currentVersion)
         }else {
              currentVersion = tagsArray[tagsArray.size() -1]
             println("current version = $currentVersion")
+        }*/
+
+
+
+        def currentVersion = tagsArray[tagsArray.size() -1]
+        if (currentVersion.isEmpty()){
+            println("current version1 = $currentVersion")
+            currentVersion = "v0.0"
         }
+
+
+        println("current version2 = $currentVersion")
 
         def currentVersionSplitted = currentVersion.split('\\.')
         println("splitted current version = $currentVersionSplitted")
