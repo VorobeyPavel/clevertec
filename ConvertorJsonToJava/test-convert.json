@@ -1,0 +1,30 @@
+{
+  "personAge": "31",
+  "country": "Spb",
+  "address": {
+    "city": "Minsk",
+    "phone": [
+      "164-23-24",
+      "474-12-24",
+      "762-53-53"
+    ],
+    "street": "plekhanova",
+    "house": "103"
+  },
+  "stringList": [
+    "123",
+    "456",
+    "789"
+  ],
+  "name": "Ivan",
+  "stringMass": [
+    "16",
+    "47",
+    "76"
+  ],
+  "map": {
+    "as3": "qwe",
+    "as2": "qwe",
+    "as1": "qwe"
+  }
+}
