@@ -5,7 +5,7 @@ import java.util.*;
 
 //https://www.youtube.com/watch?v=awmTV6BuV9U
 
-public class ObjectToJsonOld {
+public class ObjectToJson {
 
     /*public String convertToJson(Object o){
         try {

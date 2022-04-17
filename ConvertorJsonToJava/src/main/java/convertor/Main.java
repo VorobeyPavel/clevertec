@@ -32,7 +32,7 @@ public class Main {
         User user = new User("Ivan", 31, "Spb", massString, stringList, map, address);
 
 
-        ObjectToJsonOld objectToJson = new ObjectToJsonOld();
+        ObjectToJson objectToJson = new ObjectToJson();
         String jsonString = objectToJson.getJsonToString(user);
         System.out.println(jsonString);
 
