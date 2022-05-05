@@ -15,6 +15,7 @@ public class ObjectToJson {
         }
     }*/
 
+
     public String getJsonToString(Object o) throws IllegalAccessException {
         Class<?> clazz = o.getClass();
         Map<String, String> jsonElement = new HashMap<>();
