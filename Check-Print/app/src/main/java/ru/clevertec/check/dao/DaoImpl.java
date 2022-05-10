@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import ru.clevertec.check.bean.Product;
+import ru.clevertec.check.bean.ProductBuilder;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public class DaoImpl implements Dao {
                     product.getID(), product.getName(), product.getPriceProduct());
         }
     }*/
+
     @Override
     public ArrayList<Product> getWarehouseDB(){
         return (ArrayList<Product>) jdbcTemplate.query("SELECT * FROM checkrunner", new BeanPropertyRowMapper<>(Product.class));
@@ -37,16 +39,16 @@ public class DaoImpl implements Dao {
     @Override
     public ArrayList<Product> getWarehouse() {
         ArrayList<Product> warehouse = new ArrayList<>();
-        warehouse.add(new Product(1,"Avocado",7.99 ));
-        warehouse.add(new Product(2,"Pineapple", 5.29));
-        warehouse.add(new Product(3,"Orange", 3.49));
-        warehouse.add(new Product(4,"Banana", 3.69));
-        warehouse.add(new Product(5,"Grape", 7.79));
-        warehouse.add(new Product(6,"Pear", 4.39));
-        warehouse.add(new Product(7,"Melon", 5.49));
-        warehouse.add(new Product(8,"Kiwi", 4.49));
-        warehouse.add(new Product(9,"Lemon", 3.99));
-        warehouse.add(new Product(10,"Mandarin", 4.29));
+        warehouse.add(new ProductBuilder().setId(1).setName("Avocado").setPriceProduct(7.99).getProduct());
+        warehouse.add(new ProductBuilder().setId(2).setName("Pineapple").setPriceProduct(5.29).getProduct());
+        warehouse.add(new ProductBuilder().setId(3).setName("Orange").setPriceProduct(3.49).getProduct());
+        warehouse.add(new ProductBuilder().setId(4).setName("Banana").setPriceProduct(3.69).getProduct());
+        warehouse.add(new ProductBuilder().setId(5).setName("Grape").setPriceProduct(7.79).getProduct());
+        warehouse.add(new ProductBuilder().setId(6).setName("Pear").setPriceProduct(4.39).getProduct());
+        warehouse.add(new ProductBuilder().setId(7).setName("Melon").setPriceProduct(5.49).getProduct());
+        warehouse.add(new ProductBuilder().setId(8).setName("Kiwi").setPriceProduct(4.49).getProduct());
+        warehouse.add(new ProductBuilder().setId(9).setName("Lemon").setPriceProduct(3.99).getProduct());
+        warehouse.add(new ProductBuilder().setId(10).setName("Mandarin").setPriceProduct(4.29).getProduct());
         return warehouse;
     }
 
@@ -80,7 +82,9 @@ public class DaoImpl implements Dao {
                 int idProduct = Integer.parseInt(products[0]);
                 String nameProduct = products[1];
                 double priceProduct = Double.parseDouble(products[2]);
-                Product product = new Product(idProduct, nameProduct, priceProduct);
+                //Product product = new Product(idProduct, nameProduct, priceProduct);
+                Product product = new ProductBuilder().setId(idProduct).setName(nameProduct)
+                        .setPriceProduct(priceProduct).getProduct();
                 warehouse.add(product);
             }
         }catch (IOException e){
@@ -90,132 +94,6 @@ public class DaoImpl implements Dao {
         return warehouse;
     }
 
-    /*
-    Метод возвращает коллекцию типа Product (список продуктов которые желает прибрести покупатель).
-    Объекты Product содержат ID продукта и количество приобретаемого продукта.
-    */
-    @Override
-    public ArrayList<Product> shoppingList(String productLine) {
-        ArrayList<Product> listProducts = new ArrayList<>();
 
-        String[] idAndCount = productLine.split(" ");
-        for (String s : idAndCount) {
-            int index = s.indexOf("-");
-            try {
-                if (!s.substring(0, index).equals("card")){
-
-                    int id = Integer.parseInt(s.substring(0,index));
-                    int count = Integer.parseInt(s.substring(++index));
-
-                    Product product = new Product(id, count);
-                    listProducts.add(product);
-                }
-            }catch (StringIndexOutOfBoundsException e){
-                System.out.println("Вы ввели неверный формат данных. Допустимый формат данных: 3-2 2-5 5-3 card-1234");
-                System.exit(0);
-            } catch (NumberFormatException | IndexOutOfBoundsException e){
-                System.out.println("Вы ввели недоступный ID товара или неверный формат данных количества товара. " +
-                        "Значение дисконтной карты начинается со слова card.\n" +
-                        "ID может иметь значение от 1 до 10. Количество товара целочисленное значение. ");
-                System.exit(0);
-            }
-        }
-        return listProducts;
-    }
-
-    /*
-    Метод возвращает номер дисконтной карты, если она введена корректно. Дисконтная карта дает общую скидку 5%.
-    В противном случает общая цена будет подсчитана без скидки.
-    */
-    @Override
-    public int getNumberCard(String productLine) {
-        String[] idAndCount = productLine.split(" ");
-        int numberCard = 0;
-
-        for (String s : idAndCount) {
-            int index = s.indexOf("-");
-            if (s.substring(0, index).equals("card")) {
-                try {
-                    numberCard = Integer.parseInt(s.substring(++index));
-                }catch (NumberFormatException e){
-                    System.out.println("Дисконтная карта не считана. Номер дисконтной карты должен иметь целочисленное значение.");
-                    return 0;
-                }
-            }
-        }
-        return numberCard;
-    }
-
-    /*
-    Данный метод проверяет есть ли в наличие id желаемого товар для покупателя на складе.
-    */
-    @Override
-    public boolean productAvailabilityCheck(ArrayList<Product> shoppingList, ArrayList<Product> warehouse){
-
-        boolean productAvailability = false;
-
-        for (Product product : shoppingList) {
-            int idProduct = product.getId();
-
-            for (Product product1 : warehouse) {
-                productAvailability = false;
-                if (product1.getId() == idProduct) {
-                    productAvailability = true;
-                    break;
-                }
-            }
-            if (!productAvailability){
-                System.out.println("Вы ввели недоступный ID товара или неверный формат данных количества товара.\n" +
-                        "ID может иметь значение от 1 до 10. Количество товара целочисленное значение.");
-                System.exit(0);
-                return false;
-            }
-        }
-        return productAvailability;
-    }
-
-    /*
-    Метод возвращает коллекцию товаров с ценой каждого товара и общей ценой каждой позиции (учитывая количество заказов).
-    */
-    @Override
-    public ArrayList<Product> priceProduct(ArrayList<Product> shoppingList, ArrayList<Product> warehouse) {
-
-        productAvailabilityCheck(shoppingList, warehouse);
-
-        ArrayList<Product> listProductAndPrice = new ArrayList<>();
-
-        for (Product product : shoppingList) {
-            int idProduct = product.getId();
-
-            double priceProduct = 0;
-            double priceTotal = 0;
-            String nameProduct = null;
-
-            for (Product product1 : warehouse) {
-                if (product1.getId()==idProduct){
-                    priceProduct = product1.getPriceProduct();
-                    nameProduct = product1.getName();
-                }
-            }
-            priceTotal = priceProduct*product.getCount();
-            listProductAndPrice.add(new Product(product.getId(), nameProduct, priceProduct, product.getCount(), priceTotal));
-        }
-        return listProductAndPrice;
-    }
-
-    /*
-    Метод предоставляет скидку по количеству заказанных товаров. Если количество кого либо приобретаемого товара больше 5,
-    то по данной позиции предоставляется скидка 10%.
-    */
-    @Override
-    public double quantityDiscount (ArrayList<Product> shoppingList) {
-        double quantityDiscount = 0;
-        for (Product product : shoppingList) {
-            if (product.getCount()>5){
-                quantityDiscount += product.getCount()*product.getPriceProduct()*0.1;
-            }
-        }
-        return quantityDiscount;
-    }
 
 }

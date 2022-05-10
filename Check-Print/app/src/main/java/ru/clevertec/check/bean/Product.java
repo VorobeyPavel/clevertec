@@ -16,14 +16,4 @@ public class Product {
     int count;
     double priceTotal;
 
-    public Product(int id, int count) {
-        this.id = id;
-        this.count = count;
-    }
-
-    public Product(int id, String name, double priceProduct) {
-        this.id = id;
-        this.name = name;
-        this.priceProduct = priceProduct;
-    }
 }

@@ -4,6 +4,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import ru.clevertec.check.bean.Product;
 import ru.clevertec.check.dao.Dao;
 import ru.clevertec.check.service.MailService;
+import ru.clevertec.check.service.Service;
 import ru.clevertec.check.view.Print;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ public class Start {
         Dao dao = context.getBean(Dao.class);
         MailService mailService = context.getBean(MailService.class);
         Print print = context.getBean(Print.class);
+        Service service = context.getBean(Service.class);
 
         System.out.println("Введите набор параметров в формате itemId-quantity+номер дисконтной карты" +
                 "\n(itemId - идентификатор товара, quantity - его количество)" +
@@ -23,7 +25,7 @@ public class Start {
 
         Scanner sc = new Scanner(System.in);
         String productLine = sc.nextLine();
-        ArrayList<Product> listProduct = dao.shoppingList(productLine);
+        ArrayList<Product> listProduct = service.shoppingList(productLine);
 
         /*
         В зависимости от того откуда мы хотим брать доступные для заказа товары(из коллекции в классе DaoImpl,
@@ -37,21 +39,21 @@ public class Start {
         //ArrayList<Product> listProductAndPrice = dao.priceProduct(listProduct, dao.getWarehouseWithFile());
 
         //Вариант получения товаров из базы данных. Используем getWarehouseDB()
-        ArrayList<Product> listProductAndPrice = dao.priceProduct(listProduct, dao.getWarehouseDB());
+        ArrayList<Product> listProductAndPrice = service.priceProduct(listProduct, dao.getWarehouseDB());
 
 
         /*Получаем скидку по количеству заказанных товаров. Если количество кого либо приобретаемого товара больше 5,
         то по данной позиции предоставляется скидка 10%.*/
-        double quantityDiscount = dao.quantityDiscount(listProductAndPrice);
+        double quantityDiscount = service.quantityDiscount(listProductAndPrice);
 
-        int numberCard = dao.getNumberCard(productLine);
+        int numberCard = service.getNumberCard(productLine);
 
-
-        // Метод для отправки чека на Email
-        mailService.sendEmail("Vorobey_Pavel@mail.ru", "Check", String.valueOf(print.printCheckToEmail(listProductAndPrice, quantityDiscount, numberCard)));
 
         // Метод для вывода чека в консоль
         print.printCheckToConsole(listProductAndPrice, quantityDiscount, numberCard);
+
+        // Метод для отправки чека на Email
+        mailService.sendEmail(mailService.setToMail(), "Check", String.valueOf(print.printCheckToEmail(listProductAndPrice, quantityDiscount, numberCard)));
 
         //Метод для вывода чека в файл
         print.printCheckToFile(listProductAndPrice, quantityDiscount, numberCard);

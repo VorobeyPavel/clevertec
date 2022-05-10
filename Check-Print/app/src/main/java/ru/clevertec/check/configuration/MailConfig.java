@@ -40,7 +40,6 @@ public class MailConfig {
     @Value("${spring.mail.smtp.starttls.enable}")
     private String enable;
 
-
     @Value("${mail.debug}")
     private String debug;
 
