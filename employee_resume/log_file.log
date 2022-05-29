@@ -1,0 +1,65 @@
+2022-05-28 15:16:51 INFO  LoggingAspect:31 - Информация о работнике: Имя - Anton, surname - Sikola, department - IT , salary - 950
+2022-05-28 16:11:07 INFO  LoggingAspect:52 - Попытка удалить работника с id = [18]
+2022-05-28 16:11:07 INFO  LoggingAspect:78 - Работник c id = [18] удален 
+2022-05-28 16:11:55 INFO  LoggingAspect:52 - Попытка удалить работника с id = [19]
+2022-05-28 16:23:36 INFO  LoggingAspect:52 - Попытка удалить работника с id = [17]
+2022-05-28 16:23:36 INFO  LoggingAspect:78 - Работник c id = [17] удален 
+2022-05-28 16:25:03 INFO  LoggingAspect:52 - Попытка удалить работника с id = [17]
+2022-05-28 16:25:03 INFO  LoggingAspect:48 - Работника с id = 17 не существует
+2022-05-28 16:25:03 WARN  LoggingAspect:49 - Работника с id = 17 не существует
+2022-05-28 16:25:03 INFO  LoggingAspect:78 - Работник c id = [17] удален 
+2022-05-28 16:26:09 INFO  LoggingAspect:52 - Попытка удалить работника с id = [20]
+2022-05-28 16:26:09 INFO  LoggingAspect:48 - Работника с id = 20 не существует
+2022-05-28 16:26:09 WARN  LoggingAspect:49 - Работника с id = 20 не существует
+2022-05-28 16:26:09 INFO  LoggingAspect:78 - Работник c id = [20] удален 
+2022-05-28 17:33:34 INFO  LoggingAspect:53 - Попытка удалить работника с id = [16]
+2022-05-28 17:33:34 INFO  LoggingAspect:53 - Попытка удалить работника с id = [16]
+2022-05-28 17:33:34 INFO  LoggingAspect:88 - Работник c id = [16] удален 
+2022-05-28 17:33:34 INFO  LoggingAspect:88 - Работник c id = [16] удален 
+2022-05-28 17:41:48 INFO  LoggingAspect:53 - Попытка удалить работника с id = [15]
+2022-05-28 17:41:48 INFO  LoggingAspect:88 - Работник c id = [15] удален 
+2022-05-28 17:42:48 INFO  LoggingAspect:53 - Попытка удалить работника с id = [15]
+2022-05-28 17:42:48 INFO  LoggingAspect:88 - Работник c id = [15] удален 
+2022-05-28 17:51:47 INFO  LoggingAspect:53 - Попытка удалить работника с id = [15]
+2022-05-28 17:51:47 INFO  LoggingAspect:95 - Работник c id = [15] удален 
+2022-05-28 17:58:55 INFO  LoggingAspect:53 - Попытка удалить работника с id = [15]
+2022-05-28 17:58:55 WARN  LoggingAspect:82 - org.springframework.dao.EmptyResultDataAccessException: No class com.example.employee_resume.entity.Employee entity with id 15 exists! Работника c id = [15] не существует
+2022-05-28 18:01:01 INFO  LoggingAspect:53 - Попытка удалить работника с id = [14]
+2022-05-28 18:01:01 INFO  LoggingAspect:95 - Работник c id = [14] удален 
+2022-05-28 19:48:27 INFO  LoggingAspect:53 - Попытка удалить работника с id = [20]
+2022-05-28 19:48:27 WARN  LoggingAspect:82 - Работника c id = [20] не существует
+2022-05-28 19:53:25 INFO  LoggingAspect:53 - Попытка удалить работника с id = [16]
+2022-05-28 19:53:25 WARN  LoggingAspect:82 - Работника c id = [16] не существует
+2022-05-28 20:09:12 INFO  LoggingAspect:36 - Добавлен работник: Имя - Anton, surname - Sikola, department - IT, salary - 950
+2022-05-28 20:15:05 INFO  LoggingAspect:53 - Попытка удалить работника с id = [19]
+2022-05-28 20:15:05 WARN  LoggingAspect:82 - Работника c id = [19] не существует
+2022-05-28 20:17:42 INFO  LoggingAspect:53 - Попытка удалить работника с id = [21]
+2022-05-28 20:17:42 INFO  LoggingAspect:95 - Работник c id = [21] удален 
+2022-05-28 20:37:36 INFO  LoggingAspect:36 - Добавлен работник: Name - Anton, surname - Sikola, department - IT, salary - 950
+2022-05-28 20:38:06 INFO  LoggingAspect:36 - Добавлен работник: Name - Anton, surname - Sikola, department - null, salary - 950
+2022-05-28 20:39:13 INFO  LoggingAspect:36 - Добавлен работник: Name - Anton, surname - Sikola, department - null, salary - 950
+2022-05-28 20:39:36 INFO  LoggingAspect:36 - Добавлен работник: Name - null, surname - null, department - null, salary - 0
+2022-05-28 20:49:31 INFO  LoggingAspect:64 - Попытка удалить работника с id = [25]
+2022-05-28 20:49:32 INFO  LoggingAspect:105 - Работник c id = [25] удален 
+2022-05-28 20:49:54 INFO  LoggingAspect:36 - Добавлен работник: Name - Anton, surname - Sikola, department - IT, salary - 950
+2022-05-28 20:49:54 WARN  LoggingAspect:50 - Вы ввели неверный формат данных [Employee(id=null, name=Anton, surname=Sikola, department=IT, salary=950)]
+2022-05-28 20:53:11 INFO  LoggingAspect:36 - Добавлен работник: Name - Anton, surname - Sikola, department - IT, salary - 950
+2022-05-28 20:53:39 INFO  LoggingAspect:64 - Попытка удалить работника с id = [26]
+2022-05-28 20:53:39 INFO  LoggingAspect:105 - Работник c id = [26] удален 
+2022-05-28 20:53:44 INFO  LoggingAspect:36 - Добавлен работник: Name - Anton, surname - Sikola, department - IT, salary - 950
+2022-05-28 20:55:11 INFO  LoggingAspect:36 - Добавлен работник: Name - Anton, surname - Sikola, department - IT, salary - 950
+2022-05-28 20:55:24 INFO  LoggingAspect:36 - Добавлен работник: Name - Anton, surname - Sikola, department - , salary - 950
+2022-05-28 20:56:15 INFO  LoggingAspect:36 - Добавлен работник: Name - Anton, surname - Sikola, department - null, salary - 950
+2022-05-28 20:56:15 WARN  LoggingAspect:50 - Вы ввели неверный формат данных [Employee(id=null, name=Anton, surname=Sikola, department=null, salary=950)]
+2022-05-28 21:01:52 INFO  LoggingAspect:36 - Добавлен работник: Name - Anton, surname - Sikola, department - IT, salary - 950
+2022-05-28 21:01:57 INFO  LoggingAspect:36 - Добавлен работник: Name - Anton, surname - Sikola, department - null, salary - 950
+2022-05-28 21:05:01 INFO  LoggingAspect:36 - Добавлен работник: Name - Anton, surname - Sikola, department - IT, salary - 950
+2022-05-28 21:05:18 INFO  LoggingAspect:36 - Добавлен работник: Name - Anton, surname - Sikola, department - null, salary - 950
+2022-05-28 21:13:04 INFO  LoggingAspect:37 - Попытка добавить нового работника: [Employee(id=null, name=Anton, surname=Sikola, department=IT, salary=950)]
+2022-05-28 21:13:04 INFO  LoggingAspect:53 - Работник [Employee(id=11, name=Anton, surname=Sikola, department=IT, salary=950)] добавлен
+2022-05-28 21:13:50 INFO  LoggingAspect:37 - Попытка добавить нового работника: [Employee(id=null, name=Anton, surname=Sikola, department=null, salary=950)]
+2022-05-28 21:13:50 INFO  LoggingAspect:53 - Работник [Employee(id=null, name=Anton, surname=Sikola, department=null, salary=950)] добавлен
+2022-05-28 21:34:14 INFO  LoggingAspect:37 - Попытка добавить нового работника: [Employee(id=null, name=Anton, surname=Sikola, department=IT, salary=950)]
+2022-05-28 21:34:14 INFO  LoggingAspect:53 - Работник [Employee(id=12, name=Anton, surname=Sikola, department=IT, salary=950)] добавлен
+2022-05-28 21:34:47 INFO  LoggingAspect:37 - Попытка добавить нового работника: [Employee(id=null, name=Anton, surname=Sikola, department=null, salary=950)]
+2022-05-28 21:34:47 WARN  LoggingAspect:61 - Вы ввели неверный формат данных [Employee(id=null, name=Anton, surname=Sikola, department=null, salary=950)]

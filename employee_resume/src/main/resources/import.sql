@@ -1,0 +1,1 @@
+INSERT INTO employees ( name, surname, department, salary) VALUES ( 'Alex', 'Antonov', 'HR', 755);
